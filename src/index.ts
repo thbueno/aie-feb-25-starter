@@ -7,7 +7,7 @@ const main = async () => {
     const result = await generateText({
       model: openai("gpt-4o-mini"),
       prompt: "What's 10 + 5?",
-      maxSteps: 1,
+      maxSteps: 2,
       tools: {
         addNumbers: tool({
           description: "Add two numbers together",
@@ -21,7 +21,8 @@ const main = async () => {
         }),
       },
     });
-    console.log(result.toolResults);
+    console.log(result.text);
+    console.log(JSON.stringify(result.steps, null, 2));
   };
    
   main();

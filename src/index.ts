@@ -5,7 +5,12 @@ import 'dotenv/config'
 const main = async () => {
   const result = await generateText({
     model: openai('gpt-4o-mini'),
-    prompt: 'Hello, Uranus!',
+    messages: [
+      {
+        role: 'user',
+        content: 'You are a helpful assistant that can answer questions and help with tasks.',
+      },
+    ],
   })
   console.log(result.text)
 }
